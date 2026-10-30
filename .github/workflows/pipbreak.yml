@@ -1,0 +1,15 @@
+name: pipbreak
+on: pull_request
+permissions:
+  contents: read
+  pull-requests: write   # for the comment; Dependabot PRs get a read-only token without this
+jobs:
+  dependency-update:
+    if: github.actor == 'dependabot[bot]' || github.actor == 'renovate[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - uses: youssef-elaasri/pipbreak@v0

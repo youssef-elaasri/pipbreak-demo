@@ -1,0 +1,8 @@
+version: 2
+updates:
+  - package-ecosystem: pip
+    directory: /
+    schedule:
+      interval: weekly
+    allow:
+      - dependency-name: werkzeug   # only Werkzeug, to show the one update that breaks Flask 2.2
